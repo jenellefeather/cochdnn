@@ -1,11 +1,7 @@
-import sys
-sys.path.append('/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/robustness')
 from robustness.datasets import jsinV3
 from robustness.model_utils import make_and_restore_model
 from robustness.audio_functions import jsinV3_loss_functions
-
-# Set direct paths for the system being used
-JSIN_PATH = '/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets'
+from default_paths import *
 
 def make_randomized_state_dict(state_dict, pckl_name='rand_network_indices.pckl',
                                exclude_strings=['preproc.','model.0.full_rep'],

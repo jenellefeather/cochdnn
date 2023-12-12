@@ -1,9 +1,6 @@
-import sys
-sys.path.append('/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/robustness')
 from robustness.datasets import jsinV3
 from robustness.model_utils import make_and_restore_model
-
-JSIN_PATH = '/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets'
+from default_paths import *
 
 # Make a custom build script for audio_rep_training_cochleagram_1/l2_p1_robust_training
 def build_net(include_rep_in_model=True, 

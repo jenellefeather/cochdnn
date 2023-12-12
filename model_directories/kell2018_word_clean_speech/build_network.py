@@ -1,9 +1,6 @@
-import sys
-sys.path.append('/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/robustness')
 from robustness.datasets import jsinV3
 from robustness.model_utils import make_and_restore_model
-
-JSIN_PATH = '/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets'
+from default_paths import *
 
 # Make a custom build script for audio_rep_training_cochleagram_1/l2_p1_robust_training
 def build_net(include_rep_in_model=True, 
@@ -22,8 +19,6 @@ def build_net(include_rep_in_model=True,
                 include_identity_sequential=include_identity_sequential, 
                 eval_max=8,
                 **ds_kwargs) # Sequential will change the state dict names
-
-    import pdb; pdb.set_trace()
 
     # Path to the network checkpoint to load
     resume_path = '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech/33d14e31-4a5b-45a4-8f98-3b30adab1322/5_checkpoint.pt' 
