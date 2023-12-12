@@ -1,0 +1,8 @@
+An architecture based on that used in Kell et al, Neuron (2018). 5 layer CNN. 
+
+The architecture is a single branch, only performing the audioset environmental sound recognition task. 
+
+The cochleagram input to the networks differs from that used in the paper. Specifically, the cochleagram is not reshaped to 256x256. The kernel sizes of the networks are resized with this in mind (becoming rectangular rather than square). 
+
+Trained by jfeather on openmind cluster using 4 Tesla-V100 GPUs  and a total batch size of 128. Learning rate started at 0.00001 and was dropped by a factor of 10 after every 14 epochs of the audioset task (50 epochs of the word task to match word training). SGD optimizer was used with a momentum of 0.9 and weight decay of 0, and gradients were clipped to have a maximum L2 norm of 1.0. The BinaryCrossEntropy loss was scaled by a factor of 300 during training. The model was trained for a total of 42 Epochs of Audioset data from WSN corresponding to 150 Epochs of the speech data from WSN (each speech sample was paired with random audioset background, but no speech task was included). Augmentation during training consisted of jittering in time (ie random crop while keeping the word overlapping with the middle) and background noise varied between -10dB and 10dB SNR. 
+

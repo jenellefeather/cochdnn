@@ -1,0 +1,3 @@
+spectrotemporal filterbank model based on Chi, Ru, Shamma 2001. Uses cochleagram with ERB scale instead of the log-spaced input, so the spectral filters are specified based on cycles/erb (rather than cycles/octave). 
+
+The 'avgpool' layer is the time average of each of the filters, and can be used as the baseline comparison for fMRI activations. 
