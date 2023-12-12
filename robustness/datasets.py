@@ -2,11 +2,10 @@
 Module containing all the supported datasets, which are subclasses of the
 abstract class :class:`robustness.datasets.DataSet`. 
 
-Only includes the Dataset classes that used in Feather et al. 2022. 
+Only includes the Dataset class used in Tuckute*, Feather* et al. 2022. 
 
 Currently supported datasets:
 
-- ImageNet (:class:`robustness.datasets.ImageNet`)
 - Word-Speaker-Noise: (:class:`robustness.datasets.jsinV3`)
 """
 
@@ -14,15 +13,13 @@ import os
 
 import torch as ch
 import torch.utils.data
-from . import imagenet_models, audio_models
+from . import audio_models
 from torchvision import transforms, datasets
 
 from .tools import constants
 from . import data_augmentation as da
 from . import loaders
 from .audio_functions import audio_input_representations as air
-
-from .tools.helpers import get_label_mapping
 
 # This is for the JSINV3 dataset
 from .audio_functions.jsinV3DataLoader_precombined import jsinV3_precombined, jsinV3_precombined_all_signals
@@ -148,47 +145,6 @@ class DataSet(object):
                                     dl_kwargs=dl_kwargs)
 
 
-class ImageNet(DataSet):
-    '''
-    ImageNet Dataset [DDS+09]_.
-
-    Requires ImageNet in ImageFolder-readable format. 
-    ImageNet can be downloaded from http://www.image-net.org. See
-    `here <https://pytorch.org/docs/master/torchvision/datasets.html#torchvision.datasets.ImageFolder>`_
-    for more information about the format.
-
-    .. [DDS+09] Deng, J., Dong, W., Socher, R., Li, L., Li, K., & Fei-Fei, L. (2009). ImageNet: A large-scale hierarchical image database. 2009 IEEE Conference on Computer Vision and Pattern Recognition, 248-255.
-
-    '''
-    def __init__(self, data_path, **kwargs):
-        """
-        """
-        mean = kwargs.get('mean', [0.485, 0.456, 0.406])
-        std = kwargs.get('std', [0.229, 0.224, 0.225])
-
-        aug_train = kwargs.get('aug_train', da.TRAIN_TRANSFORMS_IMAGENET)
-        aug_test = kwargs.get('aug_test', da.TEST_TRANSFORMS_IMAGENET)
-        
-        ds_kwargs = {
-            'num_classes': 1000,
-            'mean': ch.tensor(mean),
-            'std': ch.tensor(std),
-            'min_value': kwargs.get('min_value', 0),
-            'max_value': kwargs.get('max_value', 1), 
-            'custom_class': None,
-            'label_mapping': None,
-            'transform_train': aug_train,
-            'transform_test': aug_test
-        }
-        super(ImageNet, self).__init__('imagenet', data_path, **ds_kwargs)
-
-    def get_model(self, arch, pretrained, arch_kwargs={}):
-        """
-        """
-        return imagenet_models.__dict__[arch](num_classes=self.num_classes, 
-                                        pretrained=pretrained, **arch_kwargs)
-
-
 class jsinV3(DataSet):
     """
     Word-Speaker-Noise dataset [Feather et al 2019]
@@ -289,12 +245,11 @@ class jsinV3(DataSet):
             return audio_models.__dict__[arch](num_classes=self.num_classes, **arch_kwargs)
 
 DATASETS = {
-    'imagenet': ImageNet,
     'jsinV3': jsinV3,
 }
 '''
 Dictionary of datasets. A dataset class can be accessed as:
 
 >>> import robustness.datasets
->>> ds = datasets.DATASETS['imagenet']('/path/to/imagenet')
+>>> ds = datasets.DATASETS['jsinV3']('/path/to/jsinV3')
 '''

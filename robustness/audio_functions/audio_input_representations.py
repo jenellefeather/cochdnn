@@ -33,9 +33,11 @@ mel_spec_0 = {'rep_type': 'mel_spec',
              }
 
 
-# This is the cochleagram representation used in the Feather et al. 2022 
+# This is the cochleagram representation used in the Feather et al. 2023
 # paper "Model metamers illuminate divergences between biological and 
 # artificial neural networks" Cochleagram is a fixed size. 
+# Same cochleagram was also used in Tuckute*, Feather*, et al. 2023 for the 
+# "in house" models
 cochleagram_1 = {'rep_type': 'cochleagram',
                  'rep_kwargs': {'signal_size':40000,
                                 'sr':20000,
