@@ -11,12 +11,6 @@ BY_DATASET = 'varies by dataset'
 REQ = 'REQUIRED'
 
 TRAINING_DEFAULTS = {
-    datasets.ImageNet: {
-        "epochs": 200,
-        "batch_size":256,
-        "weight_decay":1e-4,
-        "step_lr": 50
-    },
     datasets.jsinV3: {
        "epochs": 6, # Each "epoch" is 25 passes through the speech dataset
        "batch_size":64,

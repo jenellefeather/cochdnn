@@ -1,8 +1,6 @@
 import sys
 import os
 
-from robustness.datasets import ImageNet
-
 from robustness import train
 from cox.utils import Parameters
 from cox import store
@@ -63,15 +61,8 @@ def run_word_in_noise_natural_eval(RANDOMSEED, MODEL_DIRECTORY, BATCH_SIZE, NUM_
     
     eval_args = Parameters(eval_kwargs)
     
-    # Fill whatever parameters are missing from the defaults
-    eval_args = defaults.check_and_fill_args(eval_args,
-                            defaults.TRAINING_ARGS, ImageNet)
-    eval_args = defaults.check_and_fill_args(eval_args,
-                            defaults.PGD_ARGS, ImageNet)
-    
     # Create the cox store, and save the arguments in a table
     store_out = store.Store(eval_args.out_dir, eval_args.exp_name)
-    print(store_out)
     args_dict = eval_args.as_dict() if isinstance(eval_args, Parameters) else vars(eval_args)
     store_out.add_table_like_example('metadata', args_dict)
     store_out['metadata'].append_row(args_dict)
