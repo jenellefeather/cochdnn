@@ -20,4 +20,3 @@ build_network_spec.loader.exec_module(build_network)
 
 model, ds = build_network.main()
 ```
->>>>>>> master
