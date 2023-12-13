@@ -22,10 +22,6 @@ from __future__ import division
 from scipy.io import wavfile
 import os
 
-# make sure we are using the correct plotting display. 
-import matplotlib 
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
 import numpy as np
 
 import sys
