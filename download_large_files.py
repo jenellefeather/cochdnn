@@ -5,7 +5,6 @@ import os
 from default_paths import * 
 
 def download_extract_remove(url, extract_location):
-    os.makedirs(extract_location, exist_ok=True)
     temp_file_location = os.path.join(extract_location, 'temp.tar')
     print('Downloading %s to %s'%(url, temp_file_location))
     with open(temp_file_location, 'wb') as f:
@@ -24,4 +23,4 @@ def download_extract_remove(url, extract_location):
 
 # Download the model checkpoints (~14GB)
 url_cochdnn_checkpoints = 'https://mcdermottlab.mit.edu/cochdnn/cochdnn_model_checkpoints.tar'
-download_extract_remove(url_cochdnn_checkpoints, MODEL_CHECKPOINT_DIR)
+download_extract_remove(url_cochdnn_checkpoints, '')
