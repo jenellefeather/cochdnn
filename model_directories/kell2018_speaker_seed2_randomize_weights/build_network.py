@@ -66,7 +66,7 @@ def build_net(include_rep_in_model=True,
               strict=True):
 
     # Path to the network checkpoint to load
-    resume_path = '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/fmri_paper_more_seeds/kell2018_speaker_decay_lr_seed2/18ea3d9b-8e4a-4514-ae16-64d908ceb8bc/5_checkpoint.pt'
+    resume_path = os.path.join(MODEL_CHECKPOINT_DIR, 'audio_rep_training_cochleagram_1/fmri_paper_more_seeds/kell2018_speaker_decay_lr_seed2/18ea3d9b-8e4a-4514-ae16-64d908ceb8bc/5_checkpoint.pt')
 
     # Build the dataset so that the number of classes and normalization 
     # is set appropriately. Not needed for metamer generation, but ds is 
@@ -138,13 +138,9 @@ def build_net(include_rep_in_model=True,
                                       strict=strict
                                      )
 
-    print(model.state_dict()['model.1.batchnorm1.weight'])
-    print(model.state_dict()['attacker.model.1.batchnorm1.weight'])
     # Shuffle the weights
     rand_state_dict = make_randomized_state_dict(model.state_dict())
     model.load_state_dict(rand_state_dict)
-    print(model.state_dict()['model.1.batchnorm1.weight'])
-    print(model.state_dict()['attacker.model.1.batchnorm1.weight'])
 
     # send the model to the GPU and return it. 
     model.cuda()

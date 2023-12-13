@@ -12,7 +12,7 @@ def build_net(include_rep_in_model=True,
               strict=True):
 
     # Path to the network checkpoint to load
-    resume_path = '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech_speaker_seed2/train_out/5_checkpoint.pt'
+    resume_path = os.path.join(MODEL_CHECKPOINT_DIR, 'audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech_speaker_seed2/train_out/5_checkpoint.pt')
 
     # Build the dataset so that the number of classes and normalization 
     # is set appropriately. Not needed for metamer generation, but ds is 

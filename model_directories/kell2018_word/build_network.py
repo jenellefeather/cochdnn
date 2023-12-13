@@ -21,7 +21,7 @@ def build_net(include_rep_in_model=True,
                 **ds_kwargs) # Sequential will change the state dict names
 
     # Path to the network checkpoint to load
-    resume_path = '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/kell2018_decay_lr/2b411fd2-56f2-46c1-ad45-1355d4ffadde/5_checkpoint.pt' 
+    resume_path = os.path.join(MODEL_CHECKPOINT_DIR, 'audio_rep_training_cochleagram_1/kell2018_decay_lr/2b411fd2-56f2-46c1-ad45-1355d4ffadde/5_checkpoint.pt' )
 
     # Resnet Layers Used for Metamer Generation
     metamer_layers = [
