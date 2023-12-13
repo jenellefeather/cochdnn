@@ -2,12 +2,10 @@ import requests
 import tarfile
 import sys
 import os
-
-VISUAL_CHECKPOINTS_LOCATION = 'model_analysis_folders/visual_networks/pytorch_checkpoints/'
-AUDIO_CHECKPOINTS_LOCATION = 'model_analysis_folders/audio_networks/pytorch_checkpoints/'
-ASSETS_LOCATION = 'assets/' 
+from default_paths import * 
 
 def download_extract_remove(url, extract_location):
+    os.makedirs(extract_location, exist_ok=True)
     temp_file_location = os.path.join(extract_location, 'temp.tar')
     print('Downloading %s to %s'%(url, temp_file_location))
     with open(temp_file_location, 'wb') as f:
@@ -24,16 +22,6 @@ def download_extract_remove(url, extract_location):
     print('Removing temp file %s'%temp_file_location)
     os.remove(temp_file_location)
 
-# Download the visual checkpoints (~5.5GB)
-url_visual_checkpoints = 'https://mcdermottlab.mit.edu//jfeather/model_metamers_assets/pytorch_metamers_visual_model_checkpoints.tar'
-download_extract_remove(url_visual_checkpoints, VISUAL_CHECKPOINTS_LOCATION)
-
-# Download the audio checkpoints (~9.4G)
-url_audio_checkpoints = 'https://mcdermottlab.mit.edu//jfeather/model_metamers_assets/pytorch_metamers_audio_model_checkpoints.tar'
-
-download_extract_remove(url_audio_checkpoints, AUDIO_CHECKPOINTS_LOCATION)
-
-# Download the assets folder (366M)
-url_assets_folder = 'https://mcdermottlab.mit.edu//jfeather/model_metamers_assets/pytorch_metamers_assets_folder.tar'
-download_extract_remove(url_assets_folder, ASSETS_LOCATION)
-
+# Download the model checkpoints (~14GB)
+url_cochdnn_checkpoints = 'https://mcdermottlab.mit.edu/cochdnn/cochdnn_model_checkpoints.tar'
+download_extract_remove(url_cochdnn_checkpoints, MODEL_CHECKPOINT_DIR)
