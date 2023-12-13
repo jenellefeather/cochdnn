@@ -1,0 +1,29 @@
+Current version of pytorch/torchvision does not include modules from Mobilenet
+use_normalization
+False
+self.include_rep_in_model
+True
+Here
+=> loading checkpoint '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech_speaker/train_out/5_checkpoint.pt'
+=> loaded checkpoint '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech_speaker/train_out/5_checkpoint.pt' (epoch 6)
+==> Preparing dataset jsinV3..
+/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets
+['/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets/valid_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH/JSIN_all__run_000_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH.h5', '/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets/valid_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH/JSIN_all__run_001_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH.h5', '/om4/group/mcdermott/projects/ibmHearingAid/assets/data/datasets/JSIN_v3.00/nStim_20000/2000ms/rms_0.1/noiseSNR_-10_10/stimSR_20000/reverb_none/noise_all/JSIN_all_v3/subsets/valid_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH/JSIN_all__run_002_RQTTZB4C3TJJVLJUWDV72TYMC7S4MNHH.h5']
+2541
+CUSTOM LOSSES ARE APPLIED
+-- Table: metadata --
+    out_dir             exp_name  ...  random_start  eps_fadein_epochs
+0  eval_out  eval_natural_jsinv3  ...             0                  0
+1  eval_out  eval_natural_jsinv3  ...             0                  0
+2  eval_out  eval_natural_jsinv3  ...             0                  0
+
+[3 rows x 23 columns]
+ ... (3 rows hidden)
+
+Current version of pytorch/torchvision does not include modules from Mobilenet
+use_normalization
+False
+self.include_rep_in_model
+True
+Here
+=> loading checkpoint '/om4/group/mcdermott/user/jfeather/projects/robust_audio_networks/model_training_directory/audio_rep_training_cochleagram_1/clean_speech_training/kell2018_decay_lr_clean_speech_speaker/train_out/5_checkpoint.pt'

@@ -1,0 +1,4 @@
+ResNet50 architecture with a cochleagram input. Trained to perform the word recognition task. 
+
+Trained by jfeather on openmind cluster using 8 tesla-v100 GPUs (DGX machine)  and a total batch size of 256. Learning rate started at 0.1 and was dropped by a factor of 10 after every 50 epochs of the word task. SGD optimizer was used with a momentum of 0.9 and weight decay of 1e-4. Model was trained for a total of 150 Epochs of the speech data from WSN (no background added). Augmentation during training consisted of jittering in time (ie random crop while keeping the word overlapping with the middle). RMS was set to 0.1.  
+
