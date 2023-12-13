@@ -1,0 +1,4 @@
+ResNet50 architecture with a cochleagram input. Trained to perform the speaker recognition task. 
+
+Trained by jfeather on openmind cluster using 4 tesla-v100 GPUs (DGX machine)  and a total batch size of 256. Learning rate started at 0.1 and was dropped by a factor of 10 after every 50 epochs of the speaker task. SGD optimizer was used with a momentum of 0.9 and weight decay of 1e-4. Model was trained for a total of 150 Epochs of the speech data from WSN (each speech sample was paired with random audioset background, but no background task was included). Augmentation during training consisted of jittering in time (ie random crop while keeping the labeled word overlapping with the middle) and background noise varied between -10dB and 10dB SNR. 
+

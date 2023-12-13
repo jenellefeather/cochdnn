@@ -1,0 +1,8 @@
+An architecture based on that used in Kell et al, Neuron (2018). 5 layer CNN. 
+
+The architecture is a single branch, only performing a word recognition task. All parameters stored within the state dict (convolutional layer weights and batch norm parameters) are permuted for each layer.
+
+The cochleagram input to the networks differs from that used in the paper. Specifically, the cochleagram is not reshaped to 256x256. The kernel sizes of the networks are resized with this in mind (becoming rectangular rather than square). 
+
+Trained by jfeather on openmind cluster using 4 GEFORCEGTX1080TI GPUs (11GB each)  and a total batch size of 128. Learning rate started at 0.01 and was dropped by a factor of 10 after every 50 epochs of the word task. SGD optimizer was used with a momentum of 0.9 and weight decay of 1e-4. Model was trained for a total of 150 Epochs of the speech data from WSN (each speech sample was paired with random audioset background, but no background task was included). Augmentation during training consisted of jittering in time (ie random crop while keeping the word overlapping with the middle) and background noise varied between -10dB and 10dB SNR. 
+
