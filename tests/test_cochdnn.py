@@ -16,15 +16,14 @@ import robustness
 
 # For testing metamer generation. 
 from analysis_scripts import * 
+from default_paths import * 
 
-AUDIO_NETWORK_LIST = os.listdir('model_directories')
+AUDIO_NETWORK_LIST = os.listdir(MODEL_DIRECTORY)
 
 class AudioNetworkTests(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
-        self.base_directory = os.path.dirname(os.path.abspath(__file__))
-        self.model_directory_base = os.path.join(self.base_directory,
-                                                 'model_directories')
+        self.model_directory_base = MODEL_DIRECTORY
 
     def test_build_networks(self):
         for model in AUDIO_NETWORK_LIST:
@@ -48,9 +47,12 @@ class AudioNetworkTests(unittest.TestCase):
                     del build_network_spec
 
     def test_eval(self):
-        for model in AUDIO_NETWORK_LIST[0:2]:
-            with self.subTest(model=model):
-               eval_natural_jsinv3.main(('-D model_directories/%s'%model).split())
+        if JSIN_PATH is not None:
+            for model in AUDIO_NETWORK_LIST[0:2]:
+                with self.subTest(model=model):
+                   eval_natural_jsinv3.main(('-D model_directories/%s'%model).split())
+        else:
+            print('Not running jsin evaluation because jsin dataset is not specified')
                 
 
 if __name__ == "__main__":

@@ -27,6 +27,7 @@ setup(
     author="Jenelle Feather",
     author_email='jfeather@mit.edu',
     install_requires=requirements,
+    py_modules=['tests','robustness','default_paths', 'analysis_scripts'],
     license="MIT license",
     keywords='audio, deep neural networks',
 )
