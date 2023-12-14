@@ -1,0 +1,3 @@
+For reproducibility purposes, a yml file is provided for the conda environment used during the training and extraction of the model activations.
+
+A setup.py file with only required packages for building the models is provided in the main repo. 
