@@ -18,7 +18,7 @@ import os
 import importlib
 
 # Choose the model that will be loaded
-model_dir = 'kell2018_audioset'
+model_dir = 'resnet50_audioset'
 
 build_network_spec = importlib.util.spec_from_file_location("build_network",
                         os.path.join(model_dir, 'build_network.py'))
