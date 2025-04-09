@@ -316,7 +316,7 @@ class SpectTempFilts(nn.Module):
         return final
         
        
-def spectemp_filts_time_average_coch1(pretrained=False, linear_eval=True, **kwargs):
+def spectemp_filts_time_average_coch1(pretrained=False, linear_eval=False, **kwargs):
     """Spectrotemporal filterbank that acts on the cochleagram representation
     Includes a time average layer at the end
 
