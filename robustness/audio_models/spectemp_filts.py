@@ -316,7 +316,7 @@ class SpectTempFilts(nn.Module):
         return final
         
        
-def spectemp_filts_time_average_coch1(pretrained=False, **kwargs):
+def spectemp_filts_time_average_coch1(pretrained=False, linear_eval=True, **kwargs):
     """Spectrotemporal filterbank that acts on the cochleagram representation
     Includes a time average layer at the end
 
@@ -326,7 +326,7 @@ def spectemp_filts_time_average_coch1(pretrained=False, **kwargs):
     del pretrained # model checkpoint is not on model zoo
     # TODO: include the default spectemp parameters for this model
     coch_size=(211,390)
-    model = SpectTempFilts(coch_size, time_average=True, linear_eval=True, **kwargs)
+    model = SpectTempFilts(coch_size, time_average=True, linear_eval=linear_eval, **kwargs)
         
     return model
 
